@@ -51,7 +51,19 @@ export const dashboardNav: NavItem[] = [
   },
   { id: "campaigns", label: "Campaigns", icon: Megaphone, to: "/campaigns" },
   { id: "inbox", label: "Inbox", icon: Inbox, to: "/inbox" },
-  { id: "reports", label: "Reports & Analytics", icon: BarChart3, to: "/reports" },
+  {
+    id: "reports",
+    label: "Reports & Analytics",
+    icon: BarChart3,
+    children: [
+      { label: "Overview", to: "/reports" },
+      { label: "Calls", to: "/reports/calls" },
+      { label: "Performance", to: "/reports/performance" },
+      { label: "Campaigns", to: "/reports/campaigns" },
+      { label: "Quality & AI", to: "/reports/quality" },
+      { label: "Reports", to: "/reports/library" },
+    ],
+  },
   {
     id: "organization",
     label: "Organization",
