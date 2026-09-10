@@ -44,6 +44,12 @@ import { Route as DashboardOrganizationMembersRouteImport } from './routes/_dash
 import { Route as DashboardOrganizationRolesRouteImport } from './routes/_dashboard.organization.roles'
 import { Route as DashboardOrganizationTeamsRouteImport } from './routes/_dashboard.organization.teams'
 import { Route as DashboardOrganizationWorkspaceRouteImport } from './routes/_dashboard.organization.workspace'
+import { Route as DashboardReportsIndexRouteImport } from './routes/_dashboard.reports.index'
+import { Route as DashboardReportsCallsRouteImport } from './routes/_dashboard.reports.calls'
+import { Route as DashboardReportsCampaignsRouteImport } from './routes/_dashboard.reports.campaigns'
+import { Route as DashboardReportsLibraryRouteImport } from './routes/_dashboard.reports.library'
+import { Route as DashboardReportsPerformanceRouteImport } from './routes/_dashboard.reports.performance'
+import { Route as DashboardReportsQualityRouteImport } from './routes/_dashboard.reports.quality'
 import { Route as DashboardSettingsAutomationsRouteImport } from './routes/_dashboard.settings.automations'
 import { Route as DashboardSettingsCallingRouteImport } from './routes/_dashboard.settings.calling'
 import { Route as DashboardSettingsKnowledgeBaseRouteImport } from './routes/_dashboard.settings.knowledge-base'
@@ -228,6 +234,38 @@ const DashboardOrganizationWorkspaceRoute =
     path: '/organization/workspace',
     getParentRoute: () => DashboardRoute,
   } as any)
+const DashboardReportsIndexRoute = DashboardReportsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DashboardReportsRoute,
+} as any)
+const DashboardReportsCallsRoute = DashboardReportsCallsRouteImport.update({
+  id: '/calls',
+  path: '/calls',
+  getParentRoute: () => DashboardReportsRoute,
+} as any)
+const DashboardReportsCampaignsRoute =
+  DashboardReportsCampaignsRouteImport.update({
+    id: '/campaigns',
+    path: '/campaigns',
+    getParentRoute: () => DashboardReportsRoute,
+  } as any)
+const DashboardReportsLibraryRoute = DashboardReportsLibraryRouteImport.update({
+  id: '/library',
+  path: '/library',
+  getParentRoute: () => DashboardReportsRoute,
+} as any)
+const DashboardReportsPerformanceRoute =
+  DashboardReportsPerformanceRouteImport.update({
+    id: '/performance',
+    path: '/performance',
+    getParentRoute: () => DashboardReportsRoute,
+  } as any)
+const DashboardReportsQualityRoute = DashboardReportsQualityRouteImport.update({
+  id: '/quality',
+  path: '/quality',
+  getParentRoute: () => DashboardReportsRoute,
+} as any)
 const DashboardSettingsAutomationsRoute =
   DashboardSettingsAutomationsRouteImport.update({
     id: '/settings/automations',
@@ -263,7 +301,7 @@ export interface FileRoutesByFullPath {
   '/campaigns': typeof DashboardCampaignsRoute
   '/dashboard': typeof DashboardDashboardRoute
   '/inbox': typeof DashboardInboxRoute
-  '/reports': typeof DashboardReportsRoute
+  '/reports': typeof DashboardReportsRouteWithChildren
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
@@ -288,10 +326,16 @@ export interface FileRoutesByFullPath {
   '/organization/roles': typeof DashboardOrganizationRolesRoute
   '/organization/teams': typeof DashboardOrganizationTeamsRoute
   '/organization/workspace': typeof DashboardOrganizationWorkspaceRoute
+  '/reports/calls': typeof DashboardReportsCallsRoute
+  '/reports/campaigns': typeof DashboardReportsCampaignsRoute
+  '/reports/library': typeof DashboardReportsLibraryRoute
+  '/reports/performance': typeof DashboardReportsPerformanceRoute
+  '/reports/quality': typeof DashboardReportsQualityRoute
   '/settings/automations': typeof DashboardSettingsAutomationsRoute
   '/settings/calling': typeof DashboardSettingsCallingRoute
   '/settings/knowledge-base': typeof DashboardSettingsKnowledgeBaseRoute
   '/settings/profile': typeof DashboardSettingsProfileRoute
+  '/reports/': typeof DashboardReportsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -303,7 +347,6 @@ export interface FileRoutesByTo {
   '/campaigns': typeof DashboardCampaignsRoute
   '/dashboard': typeof DashboardDashboardRoute
   '/inbox': typeof DashboardInboxRoute
-  '/reports': typeof DashboardReportsRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
@@ -328,10 +371,16 @@ export interface FileRoutesByTo {
   '/organization/roles': typeof DashboardOrganizationRolesRoute
   '/organization/teams': typeof DashboardOrganizationTeamsRoute
   '/organization/workspace': typeof DashboardOrganizationWorkspaceRoute
+  '/reports/calls': typeof DashboardReportsCallsRoute
+  '/reports/campaigns': typeof DashboardReportsCampaignsRoute
+  '/reports/library': typeof DashboardReportsLibraryRoute
+  '/reports/performance': typeof DashboardReportsPerformanceRoute
+  '/reports/quality': typeof DashboardReportsQualityRoute
   '/settings/automations': typeof DashboardSettingsAutomationsRoute
   '/settings/calling': typeof DashboardSettingsCallingRoute
   '/settings/knowledge-base': typeof DashboardSettingsKnowledgeBaseRoute
   '/settings/profile': typeof DashboardSettingsProfileRoute
+  '/reports': typeof DashboardReportsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -345,7 +394,7 @@ export interface FileRoutesById {
   '/_dashboard/campaigns': typeof DashboardCampaignsRoute
   '/_dashboard/dashboard': typeof DashboardDashboardRoute
   '/_dashboard/inbox': typeof DashboardInboxRoute
-  '/_dashboard/reports': typeof DashboardReportsRoute
+  '/_dashboard/reports': typeof DashboardReportsRouteWithChildren
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
@@ -370,10 +419,16 @@ export interface FileRoutesById {
   '/_dashboard/organization/roles': typeof DashboardOrganizationRolesRoute
   '/_dashboard/organization/teams': typeof DashboardOrganizationTeamsRoute
   '/_dashboard/organization/workspace': typeof DashboardOrganizationWorkspaceRoute
+  '/_dashboard/reports/calls': typeof DashboardReportsCallsRoute
+  '/_dashboard/reports/campaigns': typeof DashboardReportsCampaignsRoute
+  '/_dashboard/reports/library': typeof DashboardReportsLibraryRoute
+  '/_dashboard/reports/performance': typeof DashboardReportsPerformanceRoute
+  '/_dashboard/reports/quality': typeof DashboardReportsQualityRoute
   '/_dashboard/settings/automations': typeof DashboardSettingsAutomationsRoute
   '/_dashboard/settings/calling': typeof DashboardSettingsCallingRoute
   '/_dashboard/settings/knowledge-base': typeof DashboardSettingsKnowledgeBaseRoute
   '/_dashboard/settings/profile': typeof DashboardSettingsProfileRoute
+  '/_dashboard/reports/': typeof DashboardReportsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -412,10 +467,16 @@ export interface FileRouteTypes {
     | '/organization/roles'
     | '/organization/teams'
     | '/organization/workspace'
+    | '/reports/calls'
+    | '/reports/campaigns'
+    | '/reports/library'
+    | '/reports/performance'
+    | '/reports/quality'
     | '/settings/automations'
     | '/settings/calling'
     | '/settings/knowledge-base'
     | '/settings/profile'
+    | '/reports/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -427,7 +488,6 @@ export interface FileRouteTypes {
     | '/campaigns'
     | '/dashboard'
     | '/inbox'
-    | '/reports'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/reset-password'
@@ -452,10 +512,16 @@ export interface FileRouteTypes {
     | '/organization/roles'
     | '/organization/teams'
     | '/organization/workspace'
+    | '/reports/calls'
+    | '/reports/campaigns'
+    | '/reports/library'
+    | '/reports/performance'
+    | '/reports/quality'
     | '/settings/automations'
     | '/settings/calling'
     | '/settings/knowledge-base'
     | '/settings/profile'
+    | '/reports'
   id:
     | '__root__'
     | '/'
@@ -493,10 +559,16 @@ export interface FileRouteTypes {
     | '/_dashboard/organization/roles'
     | '/_dashboard/organization/teams'
     | '/_dashboard/organization/workspace'
+    | '/_dashboard/reports/calls'
+    | '/_dashboard/reports/campaigns'
+    | '/_dashboard/reports/library'
+    | '/_dashboard/reports/performance'
+    | '/_dashboard/reports/quality'
     | '/_dashboard/settings/automations'
     | '/_dashboard/settings/calling'
     | '/_dashboard/settings/knowledge-base'
     | '/_dashboard/settings/profile'
+    | '/_dashboard/reports/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -765,6 +837,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardOrganizationWorkspaceRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/_dashboard/reports/': {
+      id: '/_dashboard/reports/'
+      path: '/'
+      fullPath: '/reports/'
+      preLoaderRoute: typeof DashboardReportsIndexRouteImport
+      parentRoute: typeof DashboardReportsRoute
+    }
+    '/_dashboard/reports/calls': {
+      id: '/_dashboard/reports/calls'
+      path: '/calls'
+      fullPath: '/reports/calls'
+      preLoaderRoute: typeof DashboardReportsCallsRouteImport
+      parentRoute: typeof DashboardReportsRoute
+    }
+    '/_dashboard/reports/campaigns': {
+      id: '/_dashboard/reports/campaigns'
+      path: '/campaigns'
+      fullPath: '/reports/campaigns'
+      preLoaderRoute: typeof DashboardReportsCampaignsRouteImport
+      parentRoute: typeof DashboardReportsRoute
+    }
+    '/_dashboard/reports/library': {
+      id: '/_dashboard/reports/library'
+      path: '/library'
+      fullPath: '/reports/library'
+      preLoaderRoute: typeof DashboardReportsLibraryRouteImport
+      parentRoute: typeof DashboardReportsRoute
+    }
+    '/_dashboard/reports/performance': {
+      id: '/_dashboard/reports/performance'
+      path: '/performance'
+      fullPath: '/reports/performance'
+      preLoaderRoute: typeof DashboardReportsPerformanceRouteImport
+      parentRoute: typeof DashboardReportsRoute
+    }
+    '/_dashboard/reports/quality': {
+      id: '/_dashboard/reports/quality'
+      path: '/quality'
+      fullPath: '/reports/quality'
+      preLoaderRoute: typeof DashboardReportsQualityRouteImport
+      parentRoute: typeof DashboardReportsRoute
+    }
     '/_dashboard/settings/automations': {
       id: '/_dashboard/settings/automations'
       path: '/settings/automations'
@@ -796,11 +910,32 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface DashboardReportsRouteChildren {
+  DashboardReportsCallsRoute: typeof DashboardReportsCallsRoute
+  DashboardReportsCampaignsRoute: typeof DashboardReportsCampaignsRoute
+  DashboardReportsLibraryRoute: typeof DashboardReportsLibraryRoute
+  DashboardReportsPerformanceRoute: typeof DashboardReportsPerformanceRoute
+  DashboardReportsQualityRoute: typeof DashboardReportsQualityRoute
+  DashboardReportsIndexRoute: typeof DashboardReportsIndexRoute
+}
+
+const DashboardReportsRouteChildren: DashboardReportsRouteChildren = {
+  DashboardReportsCallsRoute: DashboardReportsCallsRoute,
+  DashboardReportsCampaignsRoute: DashboardReportsCampaignsRoute,
+  DashboardReportsLibraryRoute: DashboardReportsLibraryRoute,
+  DashboardReportsPerformanceRoute: DashboardReportsPerformanceRoute,
+  DashboardReportsQualityRoute: DashboardReportsQualityRoute,
+  DashboardReportsIndexRoute: DashboardReportsIndexRoute,
+}
+
+const DashboardReportsRouteWithChildren =
+  DashboardReportsRoute._addFileChildren(DashboardReportsRouteChildren)
+
 interface DashboardRouteChildren {
   DashboardCampaignsRoute: typeof DashboardCampaignsRoute
   DashboardDashboardRoute: typeof DashboardDashboardRoute
   DashboardInboxRoute: typeof DashboardInboxRoute
-  DashboardReportsRoute: typeof DashboardReportsRoute
+  DashboardReportsRoute: typeof DashboardReportsRouteWithChildren
   DashboardCallingDialerRoute: typeof DashboardCallingDialerRoute
   DashboardCallingHistoryRoute: typeof DashboardCallingHistoryRoute
   DashboardCallingLiveRoute: typeof DashboardCallingLiveRoute
@@ -826,7 +961,7 @@ const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardCampaignsRoute: DashboardCampaignsRoute,
   DashboardDashboardRoute: DashboardDashboardRoute,
   DashboardInboxRoute: DashboardInboxRoute,
-  DashboardReportsRoute: DashboardReportsRoute,
+  DashboardReportsRoute: DashboardReportsRouteWithChildren,
   DashboardCallingDialerRoute: DashboardCallingDialerRoute,
   DashboardCallingHistoryRoute: DashboardCallingHistoryRoute,
   DashboardCallingLiveRoute: DashboardCallingLiveRoute,
