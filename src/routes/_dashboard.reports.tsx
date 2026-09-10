@@ -1,19 +1,16 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Outlet } from "@tanstack/react-router";
 
-import { PageShell } from "@/components/dashboard/page-shell";
+import { ReportsNav } from "@/components/reports/shared";
 
 export const Route = createFileRoute("/_dashboard/reports")({
-  head: () => ({
-    meta: [
-      { title: "Reports & analytics — Quality Dial" },
-      { name: "description", content: "Team, campaign and AI agent performance analytics." },
-      { property: "og:title", content: "Reports & analytics — Quality Dial" },
-      { property: "og:description", content: "Team, campaign and AI agent performance analytics." },
-    ],
-  }),
-  component: Page,
+  component: ReportsLayout,
 });
 
-function Page() {
-  return <PageShell title="Reports & analytics" description="Team, campaign and AI agent performance analytics." entity="report" />;
+function ReportsLayout() {
+  return (
+    <div className="mx-auto w-full max-w-7xl space-y-6">
+      <ReportsNav />
+      <Outlet />
+    </div>
+  );
 }
