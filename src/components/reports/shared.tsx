@@ -284,7 +284,7 @@ export function KpiCard({
   );
 }
 
-export function StatTile({ label, value, sub }: { label: string; value: string | number; sub?: string }) {
+export function StatTile({ label, value, sub }: { label: string; value: string | number; sub?: string | undefined }) {
   return (
     <div className="rounded-xl border border-border bg-card p-3">
       <p className="text-xs text-muted-foreground">{label}</p>

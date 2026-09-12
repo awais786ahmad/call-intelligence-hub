@@ -45,7 +45,7 @@ type Draft = {
 
 const emptyDraft: Draft = {
   name: "",
-  type: reportTypes[0],
+  type: reportTypes[0]!,
   description: "",
   date: "Last 30 days",
   campaign: "All",

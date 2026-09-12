@@ -137,7 +137,7 @@ function AgentSection({
   kind,
 }: {
   agents: AgentRow[];
-  selected?: AgentRow;
+  selected?: AgentRow | undefined;
   onSelect: (id: string) => void;
   kind: "Human" | "AI";
 }) {

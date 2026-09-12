@@ -51,7 +51,7 @@ export function CallDrawer({
   call: ReportCall | null;
   onClose: () => void;
   onChange: (c: ReportCall) => void;
-  initialTab?: string;
+  initialTab?: string | undefined;
 }) {
   return (
     <DetailDrawer
@@ -65,7 +65,7 @@ export function CallDrawer({
   );
 }
 
-function CallDetail({ call, onChange, initialTab }: { call: ReportCall; onChange: (c: ReportCall) => void; initialTab?: string }) {
+function CallDetail({ call, onChange, initialTab }: { call: ReportCall; onChange: (c: ReportCall) => void; initialTab?: string | undefined }) {
   const navigate = useNavigate();
   const [tab, setTab] = React.useState<Tab>(tabs.includes(initialTab as Tab) ? (initialTab as Tab) : "overview");
 

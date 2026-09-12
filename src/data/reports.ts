@@ -448,7 +448,7 @@ export const aiInsights = [
 
 export type TranscriptLine = { at: number; speaker: "Agent" | "Customer"; text: string };
 
-export type QaCategoryScore = { category: string; ai: number; manual: number | null; note?: string };
+export type QaCategoryScore = { category: string; ai: number; manual: number | null; note?: string | undefined };
 
 export type ReportCall = {
   id: string;
